@@ -1,5 +1,5 @@
-# Name:
-# Date:
+# Name: Hunter
+# Date: 6/13/2017
 
 # proj05: functions and lists
 
@@ -11,7 +11,14 @@ def divisors(num):
     :param num: int
     :return: list (int)
     """
-    return 0
+    ans_list = []
+    for n in range(1,num+1):
+        print "num =", num, "n =", n
+        if num % n == 0:
+            print "is division"
+            ans_list.append(n)
+
+    return ans_list
 
 def prime(num):
     """
@@ -19,9 +26,15 @@ def prime(num):
     :param num: int
     :return: bool
     """
-    return False
+    divisors_list = divisors(num)
+
+    if len(divisors_list) == 2:
+        return True
+    else:
+        return False
 
 # Part II
+
 
 def intersection(lst1, lst2):
     """
@@ -30,13 +43,20 @@ def intersection(lst1, lst2):
     :param lst2: list, any type
     :return: list, any type
     """
-    return ["test"]
+
+    intersection_list = []
+
+    lst1 = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+    lst2 = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36]
+
+
+    return
 
 # Part III
 
 def find_ab(side1, side2, side3):
     """
-    Takes three side lengths an returns two smallest in a list
+    Takes three side lengths and returns two smallest in a list
     :param side1: int or float
     :param side2: int or float
     :param side3: int or float
