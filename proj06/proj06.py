@@ -1,5 +1,5 @@
-# Name:
-# Date:
+# Name: Hunter
+# Date: 06/14/2017
 
 
 # proj06: Hangman
@@ -44,5 +44,24 @@ def choose_word(wordlist):
 # the wordlist variable so that it can be accessed from anywhere
 # in the program
 wordlist = load_words()
+word = choose_word(wordlist)
+length = len(word)
+guesses = 6
+letters = 0
+
 
 # your code begins here!
+while guesses > -1:
+    print "The length of this word is", length, "letters long."
+    l = raw_input("Please guess a letter: ")
+
+    print "you have", guesses, "guesses left."
+    if letters == length:
+        print "great job you won"
+    if l in word:
+        print "good job you got it right"
+        letters += 1
+    else:
+        guesses -= 1
+
+print word
