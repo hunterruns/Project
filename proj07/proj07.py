@@ -65,25 +65,17 @@ def get_frequency_dict(sequence):
 #
 def get_word_score(word, n):
 
-
-
-        # TO DO
-
-
-
-    word = raw_input("Enter word here : ")
+    #word = raw_input("Enter word here : ")
     score = 0
     for letter in word:
         score += SCRABBLE_LETTER_VALUES[letter]
-        score * len(word)
-    if len(word) == HAND_SIZE:
-        score + 50
+    score *= len(word)
+    if len(word) == n:
+        score += 50
         print score
     return score
 
-
-
-    #Make sure you understand how this function works and what it does!
+    # Make sure you understand how this function works and what it does!
 
 def display_hand(hand):
     """
@@ -106,6 +98,7 @@ def display_hand(hand):
 # Make sure you understand how this function works and what it does!
 #
 def deal_hand(n):
+
     """
     Returns a random hand containing n lowercase letters.
     At least n/3 the letters in the hand should be VOWELS.
@@ -134,6 +127,9 @@ def deal_hand(n):
 # Problem #2: Update a hand by removing letters
 #
 def update_hand(hand, word):
+
+
+
     """
     Assumes that 'hand' has all the letters in word.
 	In other words, this assumes that however many times
@@ -151,10 +147,18 @@ def update_hand(hand, word):
     """
     # TO DO ...
 
+    new_hand = hand.copy()
+
+    for letter in word:
+        new_hand[letter] = new_hand.get(letter, 0) - 1
+
+    return new_hand
+
 #
 # Problem #3: Test word validity
 #
 def is_valid_word(word, hand, word_list):
+
     """
     Returns True if word is in the word_list and is entirely
     composed of letters in the hand. Otherwise, returns False.
@@ -165,6 +169,14 @@ def is_valid_word(word, hand, word_list):
     word_list: list of lowercase strings
     """
     # TO DO...
+    if word in word_list:
+        print "you made a word"
+    else:
+        print "invalid word"
+         
+
+
+
 
 def calculate_handlen(hand):
     handlen = 0
