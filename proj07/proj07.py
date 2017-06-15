@@ -1,4 +1,4 @@
-# Name:
+ # Name:
 # Date:
 
 # proj07: Word Game
@@ -9,6 +9,8 @@ import string
 VOWELS = 'aeiou'
 CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
 HAND_SIZE = 7
+letter = VOWELS + CONSONANTS
+
 
 SCRABBLE_LETTER_VALUES = {
     'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k':
@@ -56,31 +58,33 @@ def get_frequency_dict(sequence):
 	
 
 # (end of helper code)
-# -----------------------------------
+#  -----------------------------------
 
 #
 # Problem #1: Scoring a word
 #
 def get_word_score(word, n):
-    """
-    Returns the score for a word. Assumes the word is a
-    valid word.
 
-	The score for a word is the sum of the points for letters
-	in the word multiplied by the length of the word, plus 50
-	points if all n letters are used on the first go.
 
-	Letters are scored as in Scrabble; A is worth 1, B is
-	worth 3, C is worth 3, D is worth 2, E is worth 1, and so on.
 
-    word: string (lowercase letters)
-    returns: int >= 0
-    """
-    # TO DO...
-    
-#
-# Make sure you understand how this function works and what it does!
-#
+        # TO DO
+
+
+
+    word = raw_input("Enter word here : ")
+    score = 0
+    for letter in word:
+        score += SCRABBLE_LETTER_VALUES[letter]
+        score * len(word)
+    if len(word) == HAND_SIZE:
+        score + 50
+        print score
+    return score
+
+
+
+    #Make sure you understand how this function works and what it does!
+
 def display_hand(hand):
     """
     Displays the letters currently in the hand.
@@ -96,7 +100,7 @@ def display_hand(hand):
     for letter in hand.keys():
         for j in range(hand[letter]):
              print letter,              # print all on the same line
-    print                               # print an empty line
+    print                              # print an empty line
 
 #
 # Make sure you understand how this function works and what it does!
