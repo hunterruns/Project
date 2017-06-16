@@ -11,7 +11,6 @@ CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
 HAND_SIZE = 7
 letter = VOWELS + CONSONANTS
 
-
 SCRABBLE_LETTER_VALUES = {
     'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k':
         5, 'l': 1, 'm': 3, 'n': 1, 'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u':
@@ -128,8 +127,6 @@ def deal_hand(n):
 #
 def update_hand(hand, word):
 
-
-
     """
     Assumes that 'hand' has all the letters in word.
 	In other words, this assumes that however many times
@@ -169,13 +166,24 @@ def is_valid_word(word, hand, word_list):
     word_list: list of lowercase strings
     """
     # TO DO...
+    letter = VOWELS + CONSONANTS
+    new_hand = hand.copy()
+    check_hand = hand.copy()
+
     if word in word_list:
-        print "you made a word"
+        ans = True
     else:
-        print "invalid word"
-         
+        ans = False
+        print "You failed the first test"
 
+    for letter in word:
+        if check_hand[letter] == 0:
+            ans = False
+            print "you can't use that letter", letter
+        else:
+            check_hand[letter] -= 1
 
+    return ans
 
 
 def calculate_handlen(hand):
@@ -216,7 +224,12 @@ def play_hand(hand, word_list):
       
     """
     # TO DO ...
+    user_input = raw_input("Enter a word using your hand!")
+    display_hand(hand)
+    print user_input
 
+    if user_input in word_list:
+        ans = True
 #
 # Problem #5: Playing a game
 # Make sure you understand how this code works!
@@ -244,3 +257,5 @@ def play_game(word_list):
 if __name__ == '__main__':
     word_list = load_words()
     play_game(word_list)
+
+
